@@ -67,10 +67,74 @@
             </ul>
         </div>
 
+        <!-- Vista del Administrador -->
         <div id="vista-admin" class="d-none">
-            <h2 class="mb-3 text-danger">Panel de Administración</h2>
-            <div class="alert alert-danger" role="alert">
-                <strong>Advertencia:</strong> Estás en el área de administración. Cualquier cambio afectará a todos los usuarios del sistema.
+            <h2 class="mb-4 text-danger">Panel de Administración</h2>
+            
+            <!-- Tarjetas de Resumen -->
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="card text-white bg-primary shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title">Presupuesto Total</h5>
+                            <h3 class="card-text fw-bold">$40.500.000</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card text-white bg-success shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title">Proyectos Activos</h5>
+                            <h3 class="card-text fw-bold">2</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabla de Reporte con datos fijos (hardcoded) para la prueba -->
+            <div class="card shadow-sm border-0 bg-light">
+                <div class="card-header bg-white pt-3 pb-2">
+                    <h5 class="mb-0 text-secondary">Reporte Financiero de Proyectos</h5>
+                </div>
+                <div class="card-body overflow-auto">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Código</th>
+                                <th>Proyecto</th>
+                                <th>Cliente</th>
+                                <th>Presupuesto</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Fila 1 -->
+                            <tr>
+                                <td><strong>PR001</strong></td>
+                                <td>Campaña Social Media TechStore</td>
+                                <td>TechStore S.A.</td>
+                                <td>$12.000.000</td>
+                                <td class="text-success fw-bold">En ejecución</td>
+                            </tr>
+                            <!-- Fila 2 -->
+                            <tr>
+                                <td><strong>PR002</strong></td>
+                                <td>Branding ModaHoy</td>
+                                <td>ModaHoy</td>
+                                <td>$8.500.000</td>
+                                <td class="text-secondary">Planificado</td>
+                            </tr>
+                            <!-- Fila 3 -->
+                            <tr>
+                                <td><strong>PR003</strong></td>
+                                <td>Campaña PPC Alimentos Sanos</td>
+                                <td>Alimentos Sanos</td>
+                                <td>$5.000.000</td>
+                                <td class="text-success fw-bold">En ejecución</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
