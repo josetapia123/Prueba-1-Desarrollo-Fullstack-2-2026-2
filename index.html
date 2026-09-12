@@ -43,13 +43,66 @@
 
         <div id="vista-director" class="d-none">
             <h2 class="mb-3 text-success">Tablero del Director</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card p-4 text-center shadow-sm border-success">
-                        <h4>Proyectos Activos</h4>
-                        <h1 class="display-4 fw-bold">12</h1>
+            <!-- Tarjetas resumen -->
+            <div class="row mb-4">
+                <div class="col-md-3 col-6 mb-3">
+                    <div class="card p-3 text-center shadow-sm border-success">
+                        <h6>Proyectos Activos</h6>
+                        <h2 class="fw-bold" id="stat-activos">0</h2>
                     </div>
                 </div>
+                <div class="col-md-3 col-6 mb-3">
+                    <div class="card p-3 text-center shadow-sm border-warning">
+                        <h6>Planificados</h6>
+                        <h2 class="fw-bold" id="stat-planificados">0</h2>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-3">
+                    <div class="card p-3 text-center shadow-sm border-danger">
+                        <h6>Retrasados</h6>
+                        <h2 class="fw-bold" id="stat-retrasados">0</h2>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-3">
+                    <div class="card p-3 text-center shadow-sm border-info">
+                        <h6>Presupuesto Total (CLP)</h6>
+                        <h2 class="fw-bold" id="stat-presupuesto">0</h2>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filtro simple -->
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <h4>Listado de Proyectos</h4>
+                <select id="filtro-estado" class="form-select w-auto">
+                    <option value="todos">Todos los estados</option>
+                    <option value="Planificado">Planificado</option>
+                    <option value="En ejecución">En ejecución</option>
+                    <option value="En revisión">En revisión</option>
+                    <option value="Entregado">Entregado</option>
+                    <option value="Cancelado">Cancelado</option>
+                </select>
+            </div>
+
+            <!-- Tabla de proyectos -->
+            <div class="table-responsive">
+                <table class="table table-hover align-middle bg-white shadow-sm">
+                    <thead class="table-success">
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Cliente</th>
+                            <th>Tipo</th>
+                            <th>Presupuesto (CLP)</th>
+                            <th>Inicio</th>
+                            <th>Fin</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-proyectos-director">
+                        <!-- Se llena con JS -->
+                    </tbody>
+                </table>
             </div>
         </div>
 
