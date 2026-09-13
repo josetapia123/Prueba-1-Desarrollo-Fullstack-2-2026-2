@@ -8,30 +8,29 @@
     <title>CreativaMente</title>
 </head>
 <body>
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom shadow-sm">
-        <div class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
-            <span class="fs-4 ms-3 fw-bold text-primary">CreativaMente</span>
-        </div>
-        <ul class="nav nav-pills me-3">
-            <li class="nav-item">
-                <button id="btn-cliente" class="nav-link active" onclick="cambiarVista('vista-cliente', 'btn-cliente')">Cliente</button>
-            </li>
-            <li class="nav-item">
-                <button id="btn-director" class="nav-link" onclick="cambiarVista('vista-director', 'btn-director')">Director de Proyectos</button>
-            </li>
-            <li class="nav-item">
-                <button id="btn-especialista" class="nav-link" onclick="cambiarVista('vista-especialista', 'btn-especialista')">Especialista</button>
-            </li>
-            <li class="nav-item">
-                <button id="btn-admin" class="nav-link" onclick="cambiarVista('vista-admin', 'btn-admin')">Administrador</button>
-            </li>
-        </ul>
-    </header>
+    <!-- Encabezado superior (Oculto al inicio mediante la clase d-none) -->
+<header id="header-sistema" class="d-none d-flex justify-content-between align-items-center py-3 mb-4 border-bottom shadow-sm px-4">
+    <span class="fs-4 fw-bold text-primary">CreativaMente</span>
+    <button class="btn btn-outline-danger btn-sm" onclick="cerrarSesion()">Cerrar Sesión</button>
+</header>
 
     <main class="container mb-5">
+    
+    <!-- ========== VISTA DE LOGIN ========== -->
+    <div id="vista-login" class="row justify-content-center mt-5">
+        <div class="col-md-4 col-sm-8">
+            <div class="card shadow p-4 border-0">
+                <h3 class="text-center text-primary mb-4">Iniciar Sesión</h3>
+                <input type="text" id="input-user" class="form-control mb-3" placeholder="Usuario">
+                <input type="password" id="input-pass" class="form-control mb-3" placeholder="Contraseña (solo números)">
+                <button class="btn btn-primary w-100" onclick="iniciarSesion()">Ingresar</button>
+            </div>
+        </div>
+    </div>
 
         <!-- ========== VISTA CLIENTE ========== -->
-        <div id="vista-cliente">
+        <div id="vista-cliente" class="d-none">
+    
             <h2 class="mb-3 text-primary">Bienvenido Cliente</h2>
 
             <div class="row">
