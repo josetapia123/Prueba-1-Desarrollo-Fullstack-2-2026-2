@@ -1,10 +1,5 @@
-#vista-director .card {
+#vista-director .card,
+#vista-cliente .card {
     border-width: 2px;
     border-radius: 12px;
-    transition: transform 0.15s ease-in-out;
 }
-
-#vista-director .card:hover {
-    transform: translateY(-3px);
-}
-
