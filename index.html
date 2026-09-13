@@ -34,24 +34,43 @@
         <div id="vista-cliente">
             <h2 class="mb-3 text-primary">Bienvenido Cliente</h2>
 
-            <div class="mb-3">
-                <label class="form-label">Selecciona tu empresa:</label>
-                <select id="filtro-cliente" class="form-select w-auto" onchange="mostrarCliente()">
-                    <option value="todos">Todas las campañas</option>
-                    <option value="TechStore S.A.">TechStore S.A.</option>
-                    <option value="ModaHoy">ModaHoy</option>
-                    <option value="Alimentos Sanos">Alimentos Sanos</option>
-                    <option value="Turismo Sur">Turismo Sur</option>
-                </select>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="card p-3 shadow-sm">
+                        <h6 class="fw-bold">Campaña Social Media TechStore</h6>
+                        <p class="mb-1 text-muted">TechStore S.A.</p>
+                        <p class="mb-0">Estado: <strong>En ejecución</strong></p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card p-3 shadow-sm">
+                        <h6 class="fw-bold">Branding ModaHoy</h6>
+                        <p class="mb-1 text-muted">ModaHoy</p>
+                        <p class="mb-0">Estado: <strong>Planificado</strong></p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card p-3 shadow-sm">
+                        <h6 class="fw-bold">Campaña PPC Alimentos Sanos</h6>
+                        <p class="mb-1 text-muted">Alimentos Sanos</p>
+                        <p class="mb-0">Estado: <strong>En ejecución</strong></p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card p-3 shadow-sm">
+                        <h6 class="fw-bold">Estrategia de Contenido Turismo Sur</h6>
+                        <p class="mb-1 text-muted">Turismo Sur</p>
+                        <p class="mb-0">Estado: <strong>Planificado</strong></p>
+                    </div>
+                </div>
             </div>
-
-            <div id="lista-campanas-cliente" class="row"></div>
         </div>
 
         <!-- ========== VISTA DIRECTOR ========== -->
         <div id="vista-director" class="d-none">
             <h2 class="mb-3 text-success">Tablero del Director</h2>
 
+            <!-- Tarjetas resumen -->
             <div class="row mb-4">
                 <div class="col-md-3 col-6 mb-3">
                     <div class="card p-3 text-center shadow-sm border-success">
@@ -79,6 +98,7 @@
                 </div>
             </div>
 
+            <!-- Tabla de proyectos -->
             <h4 class="mb-2">Listado de Proyectos</h4>
             <div class="table-responsive mb-4">
                 <table class="table table-hover align-middle bg-white shadow-sm">
@@ -113,64 +133,74 @@
                 </table>
             </div>
 
-            <h4 class="mb-2">Asignar Tareas</h4>
-            <div class="card p-3 mb-3 shadow-sm">
-                <div class="row g-2">
-                    <div class="col-md-3">
-                        <select id="select-proyecto-tarea" class="form-select"></select>
+            <!-- Carga de trabajo (datos fijos ya que solo estamos recreando la vista) -->
+            <h5>Carga de trabajo por especialista</h5>
+            <div class="row mb-4">
+                <div class="col-md-3 col-6 mb-2">
+                    <div class="card p-2 text-center shadow-sm">
+                        <small>Ana Pérez</small>
+                        <span class="fw-bold">3 tarea(s)</span>
                     </div>
-                    <div class="col-md-3">
-                        <select id="select-especialista-tarea" class="form-select"></select>
+                </div>
+                <div class="col-md-3 col-6 mb-2">
+                    <div class="card p-2 text-center shadow-sm">
+                        <small>Carlos Soto</small>
+                        <span class="fw-bold">2 tarea(s)</span>
                     </div>
-                    <div class="col-md-4">
-                        <input type="text" id="input-tarea" class="form-control" placeholder="Descripción de la tarea">
+                </div>
+                <div class="col-md-3 col-6 mb-2">
+                    <div class="card p-2 text-center shadow-sm border-danger">
+                        <small>María Rojas</small>
+                        <span class="fw-bold text-danger">5 tarea(s)</span>
                     </div>
-                    <div class="col-md-2">
-                        <button class="btn btn-success w-100" onclick="asignarTarea()">Asignar</button>
+                </div>
+                <div class="col-md-3 col-6 mb-2">
+                    <div class="card p-2 text-center shadow-sm">
+                        <small>Jorge Díaz</small>
+                        <span class="fw-bold">1 tarea(s)</span>
                     </div>
                 </div>
             </div>
 
-            <h5>Carga de trabajo por especialista</h5>
-            <div id="carga-especialistas" class="row mb-4"></div>
-
+            <!-- Lista de tareas asignadas (fijas, a modo de ejemplo) -->
             <h5>Tareas asignadas</h5>
-            <ul id="lista-tareas" class="list-group mb-3"></ul>
+            <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span><strong>Ana Pérez</strong> — Diseñar piezas gráficas (PR001)</span>
+                    <span class="badge bg-warning text-dark rounded-pill">Pendiente</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span><strong>Carlos Soto</strong> — Redactar copys redes sociales (PR002)</span>
+                    <span class="badge bg-warning text-dark rounded-pill">Pendiente</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span><strong>María Rojas</strong> — Configurar campaña PPC (PR003)</span>
+                    <span class="badge bg-success rounded-pill">Completada</span>
+                </li>
+            </ul>
         </div>
 
         <!-- ========== VISTA ESPECIALISTA ========== -->
         <div id="vista-especialista" class="d-none">
             <h2 class="mb-3 text-warning">Área de Especialistas</h2>
 
-            <div class="card p-3 mb-3 shadow-sm">
-                <h5>Registrar horas trabajadas</h5>
-                <div class="row g-2">
-                    <div class="col-md-2">
-                        <input type="text" id="input-especialista-nombre" class="form-control" placeholder="Tu nombre">
-                    </div>
-                    <div class="col-md-3">
-                        <select id="select-proyecto-horas" class="form-select"></select>
-                    </div>
-                    <div class="col-md-2">
-                        <input type="number" id="input-horas" class="form-control" placeholder="Horas" min="1">
-                    </div>
-                    <div class="col-md-3">
-                        <select id="select-prioridad" class="form-select">
-                            <option value="Alta">Prioridad Alta</option>
-                            <option value="Media">Prioridad Media</option>
-                            <option value="Baja">Prioridad Baja</option>
-                        </select>
-                    </div>
-                    <div class="col-md-2">
-                        <button class="btn btn-warning w-100" onclick="registrarHoras()">Registrar</button>
-                    </div>
-                </div>
-            </div>
+            <h5>Tareas asignadas</h5>
+            <ul class="list-group mb-4">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Diseñar piezas gráficas (PR001)
+                    <span class="badge bg-secondary">Ana Pérez</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Redactar copys redes sociales (PR002)
+                    <span class="badge bg-secondary">Carlos Soto</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Configurar campaña PPC (PR003)
+                    <span class="badge bg-secondary">María Rojas</span>
+                </li>
+            </ul>
 
-            <h5>Tareas asignadas (todas)</h5>
-            <ul id="lista-tareas-especialista" class="list-group mb-4"></ul>
-
-            <h5>Historial de horas registradas</h5>
+            <h5>Registro de horas trabajadas</h5>
             <div class="table-responsive">
                 <table class="table table-sm bg-white shadow-sm">
                     <thead class="table-warning">
@@ -179,10 +209,34 @@
                             <th>Proyecto</th>
                             <th>Horas</th>
                             <th>Prioridad</th>
-                            <th>Costo (CLP)</th>
                         </tr>
                     </thead>
-                    <tbody id="tabla-horas"></tbody>
+                    <tbody>
+                        <tr>
+                            <td>Ana Pérez</td>
+                            <td>PR001</td>
+                            <td>8</td>
+                            <td><span class="badge bg-danger">Alta</span></td>
+                        </tr>
+                        <tr>
+                            <td>Carlos Soto</td>
+                            <td>PR002</td>
+                            <td>5</td>
+                            <td><span class="badge bg-warning text-dark">Media</span></td>
+                        </tr>
+                        <tr>
+                            <td>María Rojas</td>
+                            <td>PR003</td>
+                            <td>6</td>
+                            <td><span class="badge bg-danger">Alta</span></td>
+                        </tr>
+                        <tr>
+                            <td>Jorge Díaz</td>
+                            <td>PR004</td>
+                            <td>3</td>
+                            <td><span class="badge bg-success">Baja</span></td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -191,14 +245,18 @@
         <div id="vista-admin" class="d-none">
             <h2 class="mb-4 text-danger">Panel de Administración</h2>
 
-            <div id="alertas-admin" class="mb-3"></div>
+            <!-- Alerta fija, a modo de ejemplo -->
+            <div class="alert alert-warning py-2 mb-3">
+                El proyecto <strong>Campaña PPC Alimentos Sanos</strong> superó su presupuesto planificado.
+            </div>
 
+            <!-- Tarjetas de Resumen -->
             <div class="row mb-4">
                 <div class="col-md-4">
                     <div class="card text-white bg-primary shadow-sm border-0">
                         <div class="card-body">
                             <h5 class="card-title">Presupuesto Total</h5>
-                            <h3 class="card-text fw-bold" id="admin-presupuesto-total">$0</h3>
+                            <h3 class="card-text fw-bold">$40.500.000</h3>
                         </div>
                     </div>
                 </div>
@@ -206,7 +264,7 @@
                     <div class="card text-white bg-success shadow-sm border-0">
                         <div class="card-body">
                             <h5 class="card-title">Proyectos Activos</h5>
-                            <h3 class="card-text fw-bold" id="admin-proyectos-activos">0</h3>
+                            <h3 class="card-text fw-bold">2</h3>
                         </div>
                     </div>
                 </div>
@@ -214,12 +272,13 @@
                     <div class="card text-white bg-info shadow-sm border-0">
                         <div class="card-body">
                             <h5 class="card-title">Costo Real (horas registradas)</h5>
-                            <h3 class="card-text fw-bold" id="admin-costo-real">$0</h3>
+                            <h3 class="card-text fw-bold">$550.000</h3>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Tabla de Reporte -->
             <div class="card shadow-sm border-0 bg-light">
                 <div class="card-header bg-white pt-3 pb-2">
                     <h5 class="mb-0 text-secondary">Reporte Financiero de Proyectos</h5>
@@ -232,7 +291,44 @@
                                 <th>Presupuesto</th><th>Costo Real</th><th>Rentabilidad</th><th>Estado</th>
                             </tr>
                         </thead>
-                        <tbody id="tabla-reporte-admin"></tbody>
+                        <tbody>
+                            <tr>
+                                <td><strong>PR001</strong></td>
+                                <td>Campaña Social Media TechStore</td>
+                                <td>TechStore S.A.</td>
+                                <td>$12.000.000</td>
+                                <td>$200.000</td>
+                                <td class="text-success fw-bold">$11.800.000</td>
+                                <td>En ejecución</td>
+                            </tr>
+                            <tr>
+                                <td><strong>PR002</strong></td>
+                                <td>Branding ModaHoy</td>
+                                <td>ModaHoy</td>
+                                <td>$8.500.000</td>
+                                <td>$125.000</td>
+                                <td class="text-success fw-bold">$8.375.000</td>
+                                <td>Planificado</td>
+                            </tr>
+                            <tr>
+                                <td><strong>PR003</strong></td>
+                                <td>Campaña PPC Alimentos Sanos</td>
+                                <td>Alimentos Sanos</td>
+                                <td>$5.000.000</td>
+                                <td>$150.000</td>
+                                <td class="text-success fw-bold">$4.850.000</td>
+                                <td>En ejecución</td>
+                            </tr>
+                            <tr>
+                                <td><strong>PR004</strong></td>
+                                <td>Estrategia de Contenido Turismo Sur</td>
+                                <td>Turismo Sur</td>
+                                <td>$15.000.000</td>
+                                <td>$75.000</td>
+                                <td class="text-success fw-bold">$14.925.000</td>
+                                <td>Planificado</td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>
